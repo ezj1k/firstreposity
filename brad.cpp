@@ -99,7 +99,6 @@ if(raspuns=="da"){
                                 if(arr[x-1][y]!="*" || arr[x+1][y]!="*") {
                                     arr[x][y]="*";
                                     plasat=true;
-                                    cout << x << y << endl;
                                 }
                             }
                         }
