@@ -82,7 +82,7 @@ for (int i = 0; i < spacex; i++) {
                         if(dx==0 && dy==0){
                             continue;
                         }
-                        if(ni>=0 && ni<spacex && nj>=0 && nj<spacey){
+                        if(ni>=0 && ni<spacex && nj>=0 && nj<spacey && space[ni][nj]){
                             ++space[ni][nj];
                         }
                     }
