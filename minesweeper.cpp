@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 //deschide(xcor, ycor, spacex, spacey, space, space2);
@@ -82,7 +84,7 @@ for (int i = 0; i < spacex; i++) {
                         if(dx==0 && dy==0){
                             continue;
                         }
-                        if(ni>=0 && ni<spacex && nj>=0 && nj<spacey){
+                        if(ni>=0 && ni<spacex && nj>=0 && nj<spacey && space[ni][nj]!=9){
                             ++space[ni][nj];
                         }
                     }
