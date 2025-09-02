@@ -1,0 +1,174 @@
+//exercitiul1
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+int a=10, b=20, c;
+int *pa = &a, *pb=&b;
+c= *pa;
+*pa=*pb;
+*pb=c;
+
+printf("a=%i, b=%i", a ,b);
+
+    return 0;
+}
+
+//exercitiul2
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+int temp;
+int tab[]={1,2,3,4,5,6,7,8,9};
+int *inceput=&tab[0], *final=&tab[8];
+while (inceput < final) {
+ temp = *inceput;
+ *inceput=*final;
+ *final=temp;
+ inceput++;
+ final--;
+}
+for (int i=0; i<9; i++) {
+printf("%i", tab[i]);
+}
+    return 0;
+}
+
+//exercitiul3
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+int suma=0;
+int tab[]={1,2,3,4,5,6,7,8,9};
+
+for (int i=0; i<9; i++) {
+int *pointer=&tab[i];
+suma+=*pointer;
+}
+printf("suma: %i", suma);
+
+    return 0;
+}
+
+//exercitiul4
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+int suma=0;
+int tab1[]={1,2,3,4,5,6,7,8,9};
+int tab2[]={3,4,5,8,4,2,1,5,6};
+
+for(int i=0; i<9; i++) {
+    printf ("pentru i = %i ", i);
+    int *pointer1=&tab1[i];
+    int *pointer2=&tab2[i];
+    if (*pointer1>*pointer2) {printf ("p1 e mai mare");}
+    else if (*pointer1==*pointer2) {printf ("sunt egale");}
+    else {printf ("p2 e mai mare");}
+    printf ("\n");
+}
+
+    return 0;
+}
+
+//exercitiul5
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+int n;
+scanf("%i", &n);
+int *vector = (int *)malloc(n*sizeof(int));
+
+printf("Introdu elementele pentru vector");
+for (int i=0; i<n;i++) {
+scanf("%i", &vector[i]);
+}
+
+for (int i=0; i<n;i++) {
+printf("%i", vector[i]);
+printf(" ");
+}
+
+free(vector);
+
+    return 0;
+}
+
+//exercitiul6
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+int n;
+scanf("%i", &n);
+int *vector = (int *)malloc(5*sizeof(int));
+
+printf("Introdu elementele pentru vector");
+for (int i=0; i<n;i++) {
+scanf("%i", &vector[i]);
+}
+
+if (n>5) {
+    vector= (int *)realloc(vector, n*sizeof(int));
+    printf("n e mai mare de memoria alocata, de aceea ultimele %i elemente trebuie introduse din nou\n", n-5);
+}
+
+printf("Introdu elementele pentru vector ramase\n");
+for (int i=5; i<n;i++) {
+scanf("%i", &vector[i]);
+}
+
+printf("elementele sunt");
+for (int i=0; i<n;i++) {
+printf("%i\n", vector[i]);
+}
+
+free(vector);
+
+    return 0;
+}
+
+//exercitiul7
+#include <stdio.h>
+#include <stdlib.h>
+#define n 4
+#define m 4
+
+int main() {
+
+int **matrice = (int **)malloc(n*sizeof(int));
+
+for (int i=0; i<n; i++) {
+        matrice[i]=(int *)malloc(m*sizeof(int));
+}
+
+for (int i=0; i<n; i++) {
+    for (int j=0; j<m; j++) {
+        scanf("%i", &matrice[i][j]);
+    }
+    printf("\n");
+}
+
+for (int i=0; i<n; i++) {
+    for (int j=0; j<m; j++) {
+        printf("%i ", matrice[i][j]);
+    }
+    printf("\n");
+}
+
+for (int i=0; i<n; i++) {
+        free(matrice[i]);
+}
+
+free(matrice);
+
+    return 0;
+}

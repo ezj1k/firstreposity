@@ -1,0 +1,35 @@
+algoritmul lui prim
+
+1) se alege varful
+2) se gaseste muchia cu pondere minima (T1=(1,6) = 3)
+adaugam muchia asta in multime W+=((1,6)); si o variabila adunam ponderea x+=3
+3)verificam daca multimea muchiilor este egala cu n-1 (n = multimea varfurilor) in cazul dat n=7, de aceea la final treb sa avem 6 muchii
+4)muchia data trebuie sa aiba un varf folosit, si un varf nou (sa nu formeze ciclu) T2 = (6,7) = 9. W=((1,6), (6,7)) x+=9 =12 apoi punctul 3). (nu am luat 1,6 fiindca este deja folosita
+5) T3 = (7,2) = 2, W=((1,6), (6,7), (7,2)) x+=2 = 14, apoi -> 3)
+6)T4 = (2,5) = 10, W=((1,6), (6,7), (7,2),(2,5)) x+=10 = 24, apoi -> 3)
+7)T5 = (6,4) = 20, W=((1,6), (6,7), (7,2),(2,5),(6,4)) x+=20 = 44, apoi -> 3)
+6 a fost folosit de 2 ori insa graful ramaine arbore si nu formeaza ciclu ded aceea e ok, fiindca 4 nu a fost folosit
+8)T6=(4,3) = 18, W=((1,6), (6,7), (7,2),(2,5),(6,4),(3,4)) x+=18 = 62, apoi -> 3)
+la final trebuie sa fie folosite toate varfurile macar odata.
+
+in matricea de adiacenta in loc de 1(prezenta muchiei) scriem deodata ponderea ei.
+ordonam muchiile crescator dupa pondere.
+un vector cu toate varfurile cu valoarea 0, si daca o muchie contine 2 varfuri, aceste varfuri primesc valoarea 1 in acest vektor dupa ce lam folosit
+dupa ce o folosim o eliminam di lista, k=1, daca ambele varfuri sunt 0, sau 1 atunci skip la varful dat.
+daca doar unu varf din aceasta muchie are valoarea 1, iar celalalt 0, atunci adunam iara excludem aceasta muchie din varf varurile din vector peimesc valoarea 1.
+de fiecare data incepem de la inceput, fiindca muchiile sunt ordonate crescator, ddar pe noi ne intereseaza ponderea minima a grafului.
+mai putem face daca ambele varfuri ale unei muchii nefolosite este egala cu 1, atunci eliminam si aceasta muchie din lista de muchii posibile de folosit. si repetam ciclul dat pana nu se fac toate varfurile egale cu 1.
+
+algoritm lui Kraskal
+ordonam muchiile crescator dupa pondere.
+vecor de varfuri reprezinta varful egal cu numarul sau. 1=1 2=2 etc
+initial graful este vid.
+adaugam o muchie. 1-6 va fi conexa. in vector devine 6=1.
+apoi muchia minima urmatoare, 2-7 si in vector 7=2
+apoi 6-7 si 7=1 si 2=1, (tot ce a fost 2 devine 1)
+apoi 2-5 si 5=1
+apoi 5-7 nu putem adauga ca aambele = 1
+apoi 1-5 nu putem
+3-4 putem 4=3
+4-6 putem si 4=1 3=1. peste tot k++ si eliminam muchiile din lista cu muchii
+pana nu devine tot 11111111.

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formular</h1>
+    <form id="registrationForm">
+        <div id="usernametext" style="visibility: hidden;">Username-ul nu este valid. Trebuie să înceapă cu o literă și să conțină între 5 și 20 de caractere.</div><br>
+        <label for="username">Username (5-20 caractere, începe cu litera):</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <div id="agetext" style="visibility: hidden;">Vârsta trebuie să fie între 18 și 99 de ani.</div><br>
+        <label for="age">Vârsta (între 18 și 99):</label>
+        <input type="number" id="age" name="age" required>
+        <br>
+        <div id="passwordtext" style="visibility: hidden;">Parola trebuie să aibă cel puțin 8 caractere, incluzând litere mari și mici, cifre și simboluri speciale.</div><br>
+        <label for="password">Parolă (minim 8 caractere, litere, cifre și simboluri):</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <div id="confirmpasswordtext" style="visibility: hidden;">Parola și confirmarea parolei nu coincid.</div><br>
+        <label for="confirmPassword">Confirmă parola:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+        <br>
+        <button type="button" id="submitBtn">Trimite</button>
+        <button type="button" id="clear">Curăță</button>
+    </form>
+      
+
+    <script src="lab7.js"></script>
+</body>
+</html>

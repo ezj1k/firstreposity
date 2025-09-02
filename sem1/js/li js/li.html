@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Convertor de unități</title>
+  <link rel="stylesheet" href="li.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Convertor de unități</h1>
+
+    <div class="category-buttons">
+      <button id="btnLength">Lungime</button>
+      <button id="btnWeight">Greutate</button>
+      <button id="btnTemp">Temperatură</button>
+    </div>
+
+    <input type="number" id="inputValue" placeholder="Introdu valoarea" /><br><br>
+
+    <div class="unit-select">
+      <label for="fromUnit">Din:</label>
+      <select id="fromUnit"></select><br><br>
+      <label for="toUnit">În:</label>
+      <select id="toUnit"></select>
+    </div>
+
+    <button id="btnConvert">Converteste</button>
+    <button id="btnDarkMode">Dark Mode</button>
+
+    <div id="result">Rezultatul va apărea aici.</div>
+  </div>
+
+  <script src="li.js"></script>
+</body>
+</html>
