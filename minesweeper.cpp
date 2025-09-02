@@ -84,7 +84,11 @@ for (int i = 0; i < spacex; i++) {
                         if(dx==0 && dy==0){
                             continue;
                         }
+<<<<<<< HEAD
                         if(ni>=0 && ni<spacex && nj>=0 && nj<spacey && space[ni][nj]!=9){
+=======
+                        if(ni>=0 && ni<spacex && nj>=0 && nj<spacey && space[ni][nj]){
+>>>>>>> 69a75e0943bbe66c32f3d2cb739ab1143ae62cd8
                             ++space[ni][nj];
                         }
                     }
