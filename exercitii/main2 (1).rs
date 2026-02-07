@@ -1,0 +1,63 @@
+use tokio::task;
+use reqwest::Error;
+use scraper::{Html, Selector};
+
+#[derive(Debug)]
+struct ParseData {
+    titles: Vec<String>,
+    links: Vec<String>,
+}
+
+async fn fetch_html(url: String) -> Result<String, Error> {
+    let response = reqwest::get(&url).await?
+    response.text().await
+}
+
+fn parse_html(html: &str) -> ParseData {
+    let document = Html::parse_document(html);
+    let title_selector = Selector::parse("h1, h2, h3").unwrap();
+    let links_selector = Selector::parse("a").unwrap();
+
+    let titles = document
+    .select(&title_selector)
+    .map(|el| el.text().collect::<Vec<_>>().join(" "))
+    .collect();
+    let links = document
+    .select(&links_selector)
+    .filter_map(|el| el.value().attr("href"))
+    .map(String::from)
+    .collect();
+
+    ParseData {titles, links}
+}
+
+fn process_urls(urls: Vec<String>) {
+    let mut handles = Vec::new();
+
+    for url in urls {
+        let handle = task::spawn(async move {
+            match fetch_html(url.clone()).await {
+                Ok(html) => {
+                    let data = parse_html(&html);
+                    println!("parsed dara {:?}", data);
+                }
+                Err(e) => println!("fail {}", e)
+            }
+        });
+        handles.push(handle);
+    }
+    for handle in handles {
+        handle.await.unwrap()
+    }
+}
+
+#[tokio::main]
+fn main() {
+    let urls = vec![
+        "https://google.com".to_string(),
+    ];
+
+    process_urls(urls).await;
+}
+
+//map, filter_map, (|el| ceva), select, await/async
