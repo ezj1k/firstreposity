@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #222;
+  transition: 0.3s;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #aaa;
+}
+
+body.dark .container {
+  background: #1e1e1e;
+}
+
+input, select, button {
+  width: 95%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.category-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  cursor: pointer;
+}

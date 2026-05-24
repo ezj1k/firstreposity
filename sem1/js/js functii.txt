@@ -1,0 +1,31 @@
+def NextDay(day):
+	nextDay=day+1
+	print("maine va fi", nextDay)
+	return nextDay
+def Hello():
+def Bursa(name="Ion", bursa):
+	if bursa ==True:
+		print(f"{name} are bursa")
+
+mark=lambda _parametru_:_expresia_
+Lupascu=lambda nota:nota-2
+print("nota=",Lupascu(9))
+-----------
+def Evaluare(punctaj):
+    if punctaj <=20:
+        print(f"{punctaj} nu coincide cu nota trecatoare")
+    else:
+        print(f"{punctaj} coincide cu nota trecatoare")
+Evaluare(50)
+def Hello():
+    print("sa executat functia Hello()")
+Hello()
+def Nota(mark, name="Alex"):
+    if mark<=4:
+        print(f"{name} are restanta")
+    else:
+        print(f"{name} nu are restanta")
+Nota(5,"Mihai")
+
+ferma=lambda haine: haine+100
+print(f"in depozit sunt {ferma(5000)} haine")

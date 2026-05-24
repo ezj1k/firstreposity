@@ -1,0 +1,47 @@
+mdag de determinat o multime independenta de varfuri maximala (care tinde spre maxima) intrun graf neorientat (arbitrar)
+1)elaborarea argoritmului
+2)elaborarea codului pentru algoritmul dat
+Algoritmul de determinare a multimii stabile interior maximale (algoritm de aproximare)
+1Definim MIMax: S=(vida)
+2Calculam gradele varfurilor in graf
+3Determinam varful cu grad minim
+4Adaugam acest varf in S
+5Determinam vecinatatea acestui varf
+6eliminam din graf varful dat si vecinatatea sa
+7daca varfuri nevizitate nu mai sunt, atunci ne oprim. Multimea S este MIM finisata. Daca sunt, atunci mergem la 2.
+
+1)S=(vida)
+2)grad la toate
+3)x1 cel mai mic
+4)S={x1}
+5)N(x1)={x2}
+6)X\x1 U N(x1)
+ne ramaine x3 x4 x5 x6 x7 x8 x9
+2) grad la toate
+3)x6 cel mai mic
+4)S={x1,x6}
+5)N(x6)={x5}
+6)X\x6 U N(x6)
+ne ramaine x3 x4 x7 x8 x9
+2)grad la toate
+3)x4 cel mai mic
+4)S={x1,x6,x4}
+5)N(x4)={x3}
+6)X\x4 U N(x4)
+ne ramaine x7 x8 x9
+2)grad la toate
+3) x7 cel mai mic
+4)S={x1,x6,x4,x7}
+5)N(x7)={x9}
+6)X\x7 U N(x7)
+ne ramaine x8
+2) toate
+3)x8
+4)S={x1,x6,x4,x7,x8}
+5)nu are vecini
+6)X\x8 U N(x8)
+7)Stop
+putem adauga un vector ca sa eliminam ca poate sa ramana un varf fara vecini si no sa putem sal cercetam
+00000
+11000
+11110 in timp ce matricea deja e toata 0.
